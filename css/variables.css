@@ -1,0 +1,96 @@
+:root {
+    /* Paleta Principal - Tons de Verde Escuro, Cinza e Preto */
+    --color-bg-darkest: #0a0e0a;
+    --color-bg-dark: #111a11;
+    --color-bg-medium: #1a261a;
+    --color-bg-light: #243024;
+    --color-bg-lighter: #2e3d2e;
+
+    /* Verdes */
+    --color-green-dark: #1b3a1b;
+    --color-green-medium: #2d5a2d;
+    --color-green-accent: #3d7a3d;
+    --color-green-bright: #4a9e4a;
+    --color-green-glow: #5abf5a;
+    --color-green-text: #7cd47c;
+    --color-green-light: #a3e4a3;
+
+    /* Cinzas */
+    --color-gray-900: #1a1a1a;
+    --color-gray-800: #2a2a2a;
+    --color-gray-700: #3a3a3a;
+    --color-gray-600: #4a4a4a;
+    --color-gray-500: #6a6a6a;
+    --color-gray-400: #8a8a8a;
+    --color-gray-300: #aaaaaa;
+    --color-gray-200: #cccccc;
+    --color-gray-100: #e0e0e0;
+
+    /* Cores Semânticas */
+    --color-text-primary: #d0e8d0;
+    --color-text-secondary: #8aaa8a;
+    --color-text-muted: #5a7a5a;
+    --color-text-bright: #e8f5e8;
+
+    --color-danger: #8b2020;
+    --color-danger-bright: #c44040;
+    --color-warning: #8b7020;
+    --color-warning-bright: #c4a040;
+    --color-info: #206a8b;
+
+    /* Superfícies */
+    --surface-panel: #151f15;
+    --surface-card: #1a261a;
+    --surface-card-hover: #213021;
+    --surface-input: #0f170f;
+    --surface-modal: #1a261a;
+    --surface-overlay: rgba(0, 0, 0, 0.75);
+
+    /* Bordas */
+    --border-dark: #1e2e1e;
+    --border-medium: #2a3f2a;
+    --border-light: #3a5a3a;
+    --border-accent: #3d7a3d;
+
+    /* Sombras */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 15px rgba(61, 122, 61, 0.3);
+
+    /* Tipografia */
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-mono: 'Courier New', Courier, monospace;
+
+    --text-xs: 0.7rem;
+    --text-sm: 0.8rem;
+    --text-base: 0.95rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.4rem;
+    --text-2xl: 1.8rem;
+    --text-3xl: 2.2rem;
+
+    /* Espaçamento */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 12px;
+    --space-lg: 16px;
+    --space-xl: 24px;
+    --space-2xl: 32px;
+    --space-3xl: 48px;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 10px;
+    --radius-xl: 14px;
+
+    /* Transições */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 400ms ease;
+
+    /* Locação no mapa */
+    --location-size: 120px;
+    --location-gap: 8px;
+}
