@@ -1,1 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perseguição - Call of Cthulhu 7e</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">⛧ Perseguição</h1>
+                <p class="app-subtitle">Call of Cthulhu 7th Edition</p>
+            </div>
+            <div class="header-controls">
+                <button id="btn-new-chase" class="btn btn-primary">Nova Perseguição</button>
+                <button id="btn-help" class="btn btn-ghost">Regras</button>
+            </div>
+        </header>
 
+        <!-- FASE DE SETUP -->
+        <section id="setup-phase" class="phase active">
+            <div class="setup-container">
+                <!-- Painel de Locações -->
+                <div class="setup-panel">
+                    <div class="panel-header">
+                        <h2>Locações</h2>
+                        <button id="btn-add-location" class="btn btn-small btn-primary">+ Locação</button>
+                    </div>
+                    <div id="locations-list" class="locations-list">
+                        <p class="empty-message">Adicione locações para criar o trajeto da perseguição.</p>
+                    </div>
+                </div>
+
+                <!-- Painel de Personagens -->
+                <div class="setup-panel">
+                    <div class="panel-header">
+                        <h2>Participantes</h2>
+                        <button id="btn-add-character" class="btn btn-small btn-primary">+ Personagem</button>
+                    </div>
+                    <div id="characters-list" class="characters-list">
+                        <p class="empty-message">Adicione os participantes da perseguição.</p>
+                    </div>
+                </div>
+
+                <!-- Botão Iniciar -->
+                <div class="setup-actions">
+                    <button id="btn-start-chase" class="btn btn-large btn-accent" disabled>
+                        Iniciar Perseguição
+                    </button>
+                    <p id="setup-validation" class="validation-message"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FASE DE PERSEGUIÇÃO -->
+        <section id="chase-phase" class="phase">
+            <!-- Info da Rodada -->
+            <div class="round-bar">
+                <div class="round-info">
+                    <span id="round-number" class="round-label">Rodada 1</span>
+                    <span id="current-turn-name" class="turn-label">—</span>
+                </div>
+                <div class="round-controls">
+                    <button id="btn-end-chase" class="btn btn-small btn-danger">Encerrar</button>
+                </div>
+            </div>
+
+            <!-- Mapa de Perseguição -->
+            <div id="chase-map" class="chase-map">
+                <!-- Gerado dinamicamente -->
+            </div>
+
+            <!-- Painel do Turno Atual -->
+            <div id="turn-panel" class="turn-panel">
+                <div class="turn-character-info">
+                    <h3 id="turn-char-name">—</h3>
+                    <div id="turn-char-stats" class="char-stats-inline"></div>
+                </div>
+                <div class="turn-actions">
+                    <div class="action-group">
+                        <h4>Deslocamento</h4>
+                        <button class="btn btn-action" data-action="move-forward">
+                            Avançar 1 Locação
+                        </button>
+                        <button class="btn btn-action" data-action="move-backward">
+                            Recuar 1 Locação
+                        </button>
+                        <button class="btn btn-action btn-highlight" data-action="sprint">
+                            Corrida (2 Locações)
+                        </button>
+                    </div>
+                    <div class="action-group">
+                        <h4>Ações</h4>
+                        <button class="btn btn-action" data-action="attack">Atacar</button>
+                        <button class="btn btn-action" data-action="create-obstacle">Criar Obstáculo</button>
+                        <button class="btn btn-action" data-action="hide">Esconder-se</button>
+                        <button class="btn btn-action" data-action="custom">Ação Livre</button>
+                    </div>
+                    <div class="action-group">
+                        <button id="btn-end-turn" class="btn btn-large btn-accent" data-action="end-turn">
+                            Finalizar Turno
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ordem de Iniciativa -->
+            <div id="initiative-sidebar" class="initiative-sidebar">
+                <h4>Ordem (DEX)</h4>
+                <ul id="initiative-list" class="initiative-list">
+                    <!-- Gerado dinamicamente -->
+                </ul>
+            </div>
+
+            <!-- Log de Eventos -->
+            <div id="log-panel" class="log-panel">
+                <div class="panel-header">
+                    <h4>Registro</h4>
+                    <button id="btn-toggle-log" class="btn btn-ghost btn-tiny">▼</button>
+                </div>
+                <div id="log-content" class="log-content">
+                    <!-- Gerado dinamicamente -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- MODAIS -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div id="modal-container" class="modal-container">
+            <div class="modal-header">
+                <h3 id="modal-title">—</h3>
+                <button id="modal-close" class="btn btn-ghost btn-tiny">✕</button>
+            </div>
+            <div id="modal-body" class="modal-body">
+                <!-- Conteúdo dinâmico -->
+            </div>
+            <div id="modal-footer" class="modal-footer">
+                <!-- Botões dinâmicos -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/models/Obstacle.js"></script>
+    <script src="js/models/Location.js"></script>
+    <script src="js/models/Character.js"></script>
+    <script src="js/models/Chase.js"></script>
+    <script src="js/managers/ChaseManager.js"></script>
+    <script src="js/ui/Modal.js"></script>
+    <script src="js/ui/CharacterUI.js"></script>
+    <script src="js/ui/MapUI.js"></script>
+    <script src="js/ui/TurnUI.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
